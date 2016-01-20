@@ -4,17 +4,60 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "Party Foul" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+
   </head>
 
   <body>
 
-    <%= yield %>
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">PARTY<i class="fa fa-star-half-o"></i>FOUL</a></h1>
+        </li>
+      </ul>
 
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li class="has-form">
+            <div class="row collapse">
+              <div class="large-8 small-9 columns">
+                <input type="text" placeholder="Find Stuff">
+              </div>
+              <div class="large-4 small-3 columns">
+                <a href="#" class="alert button expand">Search</a>
+              </div>
+            </div>
+          </li>
+          <% if user_signed_in? %>
+          <li><%= link_to "Profile", "/users/#{current_user.id}" %></li>
+          <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+          <% else %>
+          <li><%= link_to "Sign In", new_user_session_path %></li>
+          <% end %>
+        </ul>
+      </section>
+    </nav>
+
+    <% flash.each do |key, value| %>
+    <div class="flash <%= key %>"><%= value %></div>
+    <% end %>
+
+    <%= yield %>
+    <footer>
+    <ul class="inline-list social">
+      <li><i class="fi-social-facebook"></i></li>
+      <li><i class="fi-social-twitter"></i></li>
+      <li><i class="fi-social-linkedin"></i></li>
+
+    </ul>
+  </footer>
   </body>
-</html>
+  </html>
