@@ -17,6 +17,13 @@ ActiveRecord::Schema.define(version: 20160120205942) do
   enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
+    t.string   "username",                            null: false
+    t.string   "first_name",                          null: false
+    t.string   "last_name",                           null: false
+    t.string   "address",                             null: false
+    t.string   "city",                                null: false
+    t.string   "state",                               null: false
+    t.string   "zip",                                 null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
