@@ -1,5 +1,4 @@
 require 'faker'
-FactoryGirl.find_definitions
 
 FactoryGirl.define do
   factory :user do
