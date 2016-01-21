@@ -1,6 +1,9 @@
-require 'database_cleaner'
 require 'coveralls'
-​
+require 'rspec'
+require 'pry-rails'
+require 'shoulda-matchers'
+require 'launchy'
+
 Coveralls.wear!('rails')
 ​
 RSpec.configure do |config|
