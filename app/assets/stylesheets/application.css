@@ -19,3 +19,11 @@
  /*
   *= require font-awesome
   */
+body {
+  background: #F9F9F9;
+  height: 100%;
+  }
+
+.name {
+  color: #00FF7F;
+}
