@@ -1,0 +1,64 @@
+<div class="row">
+  <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
+    <h1>Update Event</h1>
+
+    <%= form_for(@event) do |f| %>
+    <div class="field">
+      <%= f.radio_button_tag(:event_type, "business") %>
+      <%= label_tag(:event_type, "Business") %>
+      <%= radio_button_tag(:event_type, "casual") %>
+      <%= label_tag(:event_type, "Casual") %><br />
+    </div>
+
+
+    <div class="field">
+      <%= f.label :description, "Event Description" %><br />
+      <%= f.text_area :description %>
+    </div>
+
+    <div class="field">
+      <%= f.label :venue_name, "Event Name" %><br />
+      <%= f.text_field :event_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :address, "Address" %><br />
+      <%= f.text_field :address %>
+    </div>
+
+    <div class="field">
+      <%= f.label :city %><br />
+      <%= f.text_field :city %>
+    </div>
+
+    <div class="field">
+      <%= f.label :state %><br />
+      <%= f.text_field :state %>
+    </div>
+
+    <div class="field">
+      <%= f.label :zip_code, "Zip Code" %><br />
+      <%= f.text_field :zip_code %>
+    </div>
+
+    <div class="field">
+      <%= f.label :event_date, "Event Date" %><br />
+      <%= f.date_field(:event, :event_date) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :start_time %><br />
+      <%= f.time_field(:event, :start_time) %>
+    </div>
+
+    <div class="field">
+      <%= f.label :end_time %><br />
+      <%= f.time_field(:event, :end_time) %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Add Event" %>
+    </div>
+    <% end %>
+  </div>
+</div>

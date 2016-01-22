@@ -1,22 +1,21 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe User do
-  # describe "email validations" do
-  #   subject { FactoryGirl.build(:user) }
-  #   it { should validate_uniqueness_of(:email).case_insensitive }
-  # end
-  #
-  # describe "username validations" do
-  #   subject { FactoryGirl.build(:user) }
-  #   it { should validate_uniqueness_of(:username) }
-  # end
-  #
-  # it "validates for an incorrect password length" do
-  #   expect(FactoryGirl.build(:user, password: "abc123")).to_not be_valid
-  # end
-  #
-  # it "validates for an correct password length" do
-  #   user = FactoryGirl.create(:user)
-  #   expect(user).to be_valid
-  # end
+RSpec.describe User, type: :model do
+  it { should validate_presence_of(:username) }
+  it { should validate_presence_of(:email) }
+  it { should validate_presence_of(:password) }
+  it { should have_valid(:username).when('bernie') }
+  it { should_not have_valid(:username).when('', nil) }
+
+  it { should have_valid(:email).when('user@example.com', 'bernie@cockapoo.com') }
+  it { should_not have_valid(:email).when('', nil, 'bernie', '123.com') }
+
+  it 'has matching password and password confirmation' do
+    user = User.new
+    user.password = 'password'
+    user.password_confirmation = 'thehillshaveyes'
+
+    expect(user).to_not be_valid
+    expect(user.errors[:password_confirmation]).to_not be_blank
+  end
 end

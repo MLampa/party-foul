@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+ruby '2.2.3'
 gem 'rails', '4.2.5'
 gem 'pg', '~> 0.15'
 gem 'sass-rails', '~> 5.0'
@@ -31,6 +31,7 @@ group :development, :test do
   gem 'poltergeist'
   gem 'faker'
   gem 'quiet_assets'
+  gem 'rspec'
 end
 
 group :production do

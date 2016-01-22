@@ -14,7 +14,6 @@ FactoryGirl.define do
     state { Faker::Address.state }
     zip_code { Faker::Address.zip[0..4] }
     city { Faker::Address.city }
-    price_range "2"
   end
 
   factory :review do
