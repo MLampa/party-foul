@@ -5,10 +5,6 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
-  def shadow
-    @event = Event.find(params[:id])
-  end
-
   def new
     @event = Event.new
   end
@@ -35,7 +31,7 @@ class EventsController < ApplicationController
     if @event.save
       flash.notice = "Your event has been added successfully"
       redirect_to event_path(@event)
-    else flash.notice = @venue.errors.full_messages.join(". ")
+    else flash.notice = @event.errors.full_messages.join(". ")
       render "edit"
     end
   end

@@ -31,6 +31,7 @@ group :development, :test do
   gem 'poltergeist'
   gem 'faker'
   gem 'quiet_assets'
+  gem 'rspec'
 end
 
 group :production do
