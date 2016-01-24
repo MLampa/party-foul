@@ -32,6 +32,7 @@ group :development, :test do
   gem 'faker'
   gem 'quiet_assets'
   gem 'rspec'
+  gem 'state_select'
 end
 
 group :production do

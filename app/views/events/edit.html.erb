@@ -1,24 +1,23 @@
 <div class="row">
   <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
-    <h1>Update Event</h1>
+    <h1>Edit Event</h1>
 
     <%= form_for(@event) do |f| %>
     <div class="field">
-      <%= f.radio_button_tag(:event_type, "business") %>
+      <%= f.radio_button(:event_type, "business") %>
       <%= label_tag(:event_type, "Business") %>
-      <%= radio_button_tag(:event_type, "casual") %>
+      <%= f.radio_button(:event_type, "casual") %>
       <%= label_tag(:event_type, "Casual") %><br />
-    </div>
-
-
-    <div class="field">
-      <%= f.label :description, "Event Description" %><br />
-      <%= f.text_area :description %>
     </div>
 
     <div class="field">
       <%= f.label :venue_name, "Event Name" %><br />
       <%= f.text_field :event_name %>
+    </div>
+
+    <div class="field">
+      <%= f.label :description, "Event Description" %><br />
+      <%= f.text_area :description %>
     </div>
 
     <div class="field">
@@ -33,7 +32,7 @@
 
     <div class="field">
       <%= f.label :state %><br />
-      <%= f.text_field :state %>
+      <%= f.select(:state, prompt: {state: 'Choose state'}, options_for_select(us_states), {}, class: 'form-control' %>
     </div>
 
     <div class="field">
@@ -43,21 +42,21 @@
 
     <div class="field">
       <%= f.label :event_date, "Event Date" %><br />
-      <%= f.date_field(:event, :event_date) %>
+      <%= f.date_field(:event_date, :order => [:month, :day, :year]) %>
     </div>
 
     <div class="field">
       <%= f.label :start_time %><br />
-      <%= f.time_field(:event, :start_time) %>
+      <%= f.time_select(:start_time, prompt: {hour: 'Choose hour', minute: 'Choose minute'}, minute_step: 15, ampm: true) %>
     </div>
 
     <div class="field">
       <%= f.label :end_time %><br />
-      <%= f.time_field(:event, :end_time) %>
+      <%= f.time_select(:end_time, prompt: {hour: 'Choose hour', minute: 'Choose minute'}, minute_step: 15, ampm: true) %>
     </div>
 
     <div class="actions">
-      <%= f.submit "Submit Changes" %>
+      <%= f.submit "Update Event" %>
     </div>
     <% end %>
   </div>

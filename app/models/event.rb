@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+  has_many :users
+  belongs_to :user
 
   STATES = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL",
             "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA",
@@ -15,10 +17,10 @@ class Event < ActiveRecord::Base
   validates :state, presence: true, inclusion: { in: STATES }
   validates :zip_code, presence: true, length: { is: 5 }
   validates :zip_code, numericality: { only_integer: true }
+  validates :event_date, presence: true
+  validates :start_time, presence: true
+  validates :end_time, presence: true
   validates :user, presence: true
-
-  has_many :users
-  belongs_to :user
 
   def deletable_by(user)
     return false if user.nil?

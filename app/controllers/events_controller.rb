@@ -27,7 +27,7 @@ class EventsController < ApplicationController
 
   def update
     @event = Event.find(params[:id])
-    @event.update(venue_params)
+    @event.update(event_params)
     if @event.save
       flash.notice = "Your event has been added successfully"
       redirect_to event_path(@event)
