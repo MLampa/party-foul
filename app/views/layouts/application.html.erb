@@ -25,6 +25,9 @@
 
       <section class="top-bar-section">
         <!-- Right Nav Section -->
+        <ul class="left">
+          <li><a href="<%= events_path %>">Browse All Events</a></li>
+        </ul>
         <ul class="right">
           <li class="has-form">
             <div class="row collapse">
@@ -53,12 +56,14 @@
 
     <%= yield %>
     <footer>
-    <ul class="inline-list social">
-      <li><i class="fi-social-facebook"></i></li>
-      <li><i class="fi-social-twitter"></i></li>
-      <li><i class="fi-social-linkedin"></i></li>
-
-    </ul>
-  </footer>
+      <div class="small-6 large-3 columns">
+      <ul class="contact menu">
+      <li><a href="#"><i class="fi-social-twitter"></i> Twitter</a></li>
+      <li><a href="#"><i class="fi-social-facebook"></i> Facebook</a></li>
+      <li><a href="#"><i class="fi-social-instagram"></i> Instagram</a></li>
+      <li><a href="#"><i class="fi-social-pinterest"></i> Pinterest</a></li>
+      </ul>
+      </div>
+    </footer>
   </body>
   </html>

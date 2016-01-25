@@ -17,13 +17,12 @@ class Event < ActiveRecord::Base
   validates :state, presence: true, inclusion: { in: STATES }
   validates :zip_code, presence: true, length: { is: 5 }
   validates :zip_code, numericality: { only_integer: true }
-  validates :event_date, presence: true
-  validates :start_time, presence: true
-  validates :end_time, presence: true
+  validates :event_start, presence: true
+  validates :event_end, presence: true
   validates :user, presence: true
 
-  def deletable_by(user)
-    return false if user.nil?
-    user.admin? || self.user == user
-  end
+  # def deletable_by(user)
+  #   return false if user.nil?
+  #   user.admin? || self.user == user
+  # end
 end

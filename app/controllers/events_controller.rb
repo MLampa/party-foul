@@ -9,6 +9,10 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
   def create
     @event = Event.new(event_params)
     @event.user = current_user
@@ -17,7 +21,7 @@ class EventsController < ApplicationController
       redirect_to events_path
     else
       flash.notice = @event.errors.full_messages.join(". ")
-      render "new"
+      render :new
     end
   end
 
@@ -57,7 +61,9 @@ class EventsController < ApplicationController
       :address,
       :city,
       :state,
-      :zip_code
+      :zip_code,
+      :event_start,
+      :event_end
     )
   end
 end

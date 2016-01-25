@@ -9,9 +9,8 @@ class CreateEvents < ActiveRecord::Migration
       t.string :city, null: false
       t.string :state, null: false
       t.string :zip_code, null: false
-      t.date :event_date, null: false
-      t.time :start_time, null: false
-      t.time :end_time, null: false
+      t.datetime :event_start, null: false
+      t.datetime :event_end, null: false
       t.timestamps null: false
     end
   end

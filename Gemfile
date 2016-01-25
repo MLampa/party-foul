@@ -14,6 +14,7 @@ gem 'dotenv-rails'
 gem 'devise'
 gem 'foundation-rails', '5.5.3.2'
 gem "font-awesome-rails"
+gem 'bootstrap-datepicker-rails'
 
 group :development, :test do
   gem 'byebug'
