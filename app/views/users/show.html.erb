@@ -4,8 +4,19 @@
 </div>
 
 <div>
-  Your Events:<br>
+  Events You Are Attending:<br>
   <% @events.each do |event| %>
     <%= event.event_name %>
+  <% end %>
+</div>
+
+<div>
+  Events You Are Hosting:<br>
+  <% @hosted_events.each do |host_event| %>
+  <% if host_event.user_id == current_user.id %>
+    <%= host_event.event_name %>
+        <p><%= link_to "Edit Your Event Information", edit_event_path, class: "button round small edit-info" %></p>
+        <p><%= link_to "Delete Event", event_path, method: :delete, class: "button round small org-button" %></p>
+    <% end %>
   <% end %>
 </div>

@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
   has_many :event_attendees
+  belongs_to :user
   has_many :users, through: :event_attendees
   STATES = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL",
             "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA",

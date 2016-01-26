@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def show
     @user = current_user
     @events = @user.events
+    @hosted_events = Event.where(params[:user_id])
   end
 
   def index
