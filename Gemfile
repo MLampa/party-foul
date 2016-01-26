@@ -14,6 +14,10 @@ gem 'dotenv-rails'
 gem 'devise'
 gem 'foundation-rails', '5.5.3.2'
 gem "font-awesome-rails"
+gem 'bootstrap-datepicker-rails'
+gem 'foundation-icons-sass-rails'
+gem 'animate-rails'
+gem 'acts_as_votable', '~> 0.10.0'
 
 group :development, :test do
   gem 'byebug'
@@ -32,6 +36,7 @@ group :development, :test do
   gem 'faker'
   gem 'quiet_assets'
   gem 'rspec'
+  gem 'state_select'
 end
 
 group :production do

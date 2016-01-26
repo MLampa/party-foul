@@ -10,32 +10,36 @@
     <%= javascript_include_tag "vendor/modernizr" %>
     <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="animate.min.css">
     <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
   </head>
 
   <body>
-
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="/">PARTY<i class="fa fa-star-half-o"></i>FOUL</a></h1>
+          <h1><a href="/"><span style="color: #F660AB">PARTY</span><span style="color: #F3F315"><i class="fa fa-star-half-o animated bounceIn"></i></span><span style="color: #F660AB">FOUL</span></a></h1>
         </li>
       </ul>
 
+    <div class="contain-to-grid fixed">
       <section class="top-bar-section">
         <!-- Right Nav Section -->
+        <ul class="left">
+          <li><a href="<%= events_path %>">Browse All Events</a></li>
+        </ul>
         <ul class="right">
-          <li class="has-form">
+          <!-- <li class="has-form">
             <div class="row collapse">
               <div class="large-8 small-9 columns">
-                <input type="text" placeholder="Find Stuff">
+                <input type="text" placeholder="Search">
               </div>
               <div class="large-4 small-3 columns">
                 <a href="#" class="alert button expand">Search</a>
               </div>
             </div>
-          </li>
+          </li> -->
           <li><%= link_to "About", about_path %></li>
           <% if user_signed_in? %>
           <li><%= link_to "Profile", "/users/#{current_user.id}" %></li>
@@ -46,19 +50,44 @@
         </ul>
       </section>
     </nav>
+  </div>
 
     <% flash.each do |key, value| %>
     <div class="flash <%= key %>"><%= value %></div>
     <% end %>
 
     <%= yield %>
-    <footer>
-    <ul class="inline-list social">
-      <li><i class="fi-social-facebook"></i></li>
-      <li><i class="fi-social-twitter"></i></li>
-      <li><i class="fi-social-linkedin"></i></li>
-
-    </ul>
-  </footer>
   </body>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+
+    <footer class="footer">
+      <div class="row">
+        <div class="small-12 medium-6 large-5 columns">
+          <p class="logo"><span style="color: #F660AB">PARTY</span><span style="color: #F3F315"><i class="fa fa-star-half-o"></i></span><span style="color: #F660AB">FOUL</span></p>
+          <p class="footer-links">
+            <a href="/">Home</a>
+            <a href="/static_pages/about">About</a>
+            <a href="/static_pages/about_michelle">Contact</a>
+          </p>
+          <p class="copywrite">you know it © 2016</p>
+        </div>
+        <div class="small-12 medium-6 large-4 columns">
+          <ul class="contact">
+            <li><p><i class="fi-marker"></i>Boston, MA</p></li>
+            <li><p><i class="fi-telephone"></i>+1-617-500-8570</p></li>
+            <li><p><i class="fi-mail"></i>contact_me@viaLinkedIn.com</p></li>
+          </ul>
+        </div>
+        <div class="small-12 medium-12 large-3 columns">
+          <p class="about">About <span style="color: #F660AB">PARTY</span><span style="color: #F3F315"><i class="fa fa-star-half-o"></i></span><span style="color: #F660AB">FOUL</span></p>
+          <p class="about subheader">The Gamification of Networking Building</p>
+          <ul class="inline-list social">
+            <a href="https://www.facebook.com"><i class="fi-social-facebook"></i></a>
+            <a href="https://www.twitter.com/mclampasays"><i class="fi-social-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/michellelampa"><i class="fi-social-linkedin"></i></a>
+            <a href="https://www.github.com/mlampa"><i class="fi-social-github"></i></a>
+          </ul>
+        </div>
+      </div>
+    </footer>
   </html>

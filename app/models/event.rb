@@ -1,4 +1,6 @@
 class Event < ActiveRecord::Base
+  has_many :event_attendees
+  has_many :users, through: :event_attendees
 
   STATES = ["AL", "AK", "AZ", "AR", "CA", "CO", "CT", "DE", "FL",
             "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA",
@@ -15,13 +17,12 @@ class Event < ActiveRecord::Base
   validates :state, presence: true, inclusion: { in: STATES }
   validates :zip_code, presence: true, length: { is: 5 }
   validates :zip_code, numericality: { only_integer: true }
+  validates :event_start, presence: true
+  validates :event_end, presence: true
   validates :user, presence: true
 
-  has_many :users
-  belongs_to :user
-
-  def deletable_by(user)
-    return false if user.nil?
-    user.admin? || self.user == user
-  end
+  # def deletable_by(user)
+  #   return false if user.nil?
+  #   user.admin? || self.user == user
+  # end
 end

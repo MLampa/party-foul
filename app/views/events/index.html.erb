@@ -1,12 +1,15 @@
 <div class="show-footer bg-img">
   <div class="floating-container">
     <div class="row title-header">
-      <h1 class="animated fadeInDown">Events</h1>
+      <h1 class="page-titles">Events</h1>
     </div>
   </div>
-    <%= render @events %>
   <div class="event-options">
     <hr>
+    <% @events.each do |event| %>
+    <a href="/events/<%=event.id%>"><%= event.event_name %></a>
+    <p><%= event.description %> </p>
+    <% end %>
     <div class="text-center">
       <a href="<%= new_event_path %>" class="button">Add a New Event!</a>
     </div>
