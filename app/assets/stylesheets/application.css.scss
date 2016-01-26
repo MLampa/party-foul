@@ -21,8 +21,11 @@
   *= require animate
   */
 
-
 @import 'foundation-icons';
+
+.background-image {
+  background: image-url('background_picture.jpg')
+}
 
 body {
   background-color: #FFF0F0;
