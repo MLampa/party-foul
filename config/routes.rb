@@ -7,7 +7,10 @@ Rails.application.routes.draw do
   end
 
   get "static_pages/about", :as => 'about'
+  get "static_pages/about_michelle", :as => 'about_michelle'
 
   resources :users
-  resources :events
+  resources :events do
+    resources :event_attendees
+  end
 end

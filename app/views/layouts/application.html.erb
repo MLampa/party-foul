@@ -15,7 +15,6 @@
   </head>
 
   <body>
-
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
@@ -23,6 +22,7 @@
         </li>
       </ul>
 
+    <div class="contain-to-grid fixed">
       <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="left">
@@ -49,21 +49,23 @@
         </ul>
       </section>
     </nav>
+  </div>
 
     <% flash.each do |key, value| %>
     <div class="flash <%= key %>"><%= value %></div>
     <% end %>
 
     <%= yield %>
-    <footer>
-      <div class="small-6 large-3 columns">
-      <ul class="contact menu">
-      <li><a href="#"><i class="fi-social-twitter"></i> Twitter</a></li>
-      <li><a href="#"><i class="fi-social-facebook"></i> Facebook</a></li>
-      <li><a href="#"><i class="fi-social-instagram"></i> Instagram</a></li>
-      <li><a href="#"><i class="fi-social-pinterest"></i> Pinterest</a></li>
-      </ul>
-      </div>
-    </footer>
   </body>
+  <footer>
+    <div class="small-6 large-3 columns">
+    <ul class="contact menu">
+    <li><a href="#"><i class="fi-social-twitter"></i> Twitter</a></li>
+    <li><a href="#"><i class="fi-social-facebook"></i> Facebook</a></li>
+    <li><a href="#"><i class="fi-social-instagram"></i> Instagram</a></li>
+    <li><a href="#"><i class="fi-social-pinterest"></i> Pinterest</a></li>
+    </ul>
+    </div>
+  </footer>
+
   </html>

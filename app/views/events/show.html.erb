@@ -2,10 +2,16 @@
 <div class="title-header show-footer">
   <h1><%= @event.event_name %></h1>
   <p><%= @event.description %></p>
+  <%= button_to 'Attend', event_event_attendees_path(@event), method: :post, confirm: 'really?' %>
 
   <div class="text-center">
     <a href="<%= events_path %>" class="button">All Events</a>
   </div>
 
+    <% @attendees.each do |attendee| %>
+    <div>
+      <%= attendee.username %>
+      <% end %>
+    </div>
 </div>
 </body>
