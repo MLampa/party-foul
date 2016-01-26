@@ -1,3 +1,4 @@
+<body>
 <div class="row">
   <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
     <h1>Edit Event</h1>
@@ -32,7 +33,7 @@
 
     <div class="field">
       <%= f.label :state %><br />
-      <%= f.select(:state, prompt: {state: 'Choose state'}, options_for_select(us_states), {}, class: 'form-control' %>
+      <%= f.select :state, options_for_select(us_states),{}, class: 'form-control' %>
     </div>
 
     <div class="field">
@@ -41,18 +42,13 @@
     </div>
 
     <div class="field">
-      <%= f.label :event_date, "Event Date" %><br />
-      <%= f.date_field(:event_date, :order => [:month, :day, :year]) %>
+      <%= f.label :event_start %><br />
+      <%= f.datetime_select(:event_start, :order => [:month, :day, :year], prompt: {hour: 'Choose hour', minute: 'Choose minute'}, minute_step: 15, ampm: true) %>
     </div>
 
     <div class="field">
-      <%= f.label :start_time %><br />
-      <%= f.time_select(:start_time, prompt: {hour: 'Choose hour', minute: 'Choose minute'}, minute_step: 15, ampm: true) %>
-    </div>
-
-    <div class="field">
-      <%= f.label :end_time %><br />
-      <%= f.time_select(:end_time, prompt: {hour: 'Choose hour', minute: 'Choose minute'}, minute_step: 15, ampm: true) %>
+      <%= f.label :event_end %><br />
+      <%= f.datetime_select(:event_end, :order => [:month, :day, :year], prompt: {hour: 'Choose hour', minute: 'Choose minute'}, minute_step: 15, ampm: true) %>
     </div>
 
     <div class="actions">
@@ -61,3 +57,4 @@
     <% end %>
   </div>
 </div>
+</body>
