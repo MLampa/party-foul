@@ -16,6 +16,7 @@ gem 'foundation-rails', '5.5.3.2'
 gem "font-awesome-rails"
 gem 'bootstrap-datepicker-rails'
 gem 'foundation-icons-sass-rails'
+gem 'animate-rails'
 
 group :development, :test do
   gem 'byebug'
