@@ -2,7 +2,7 @@
 <div class="title-header show-footer">
   <h1><%= @event.event_name %></h1>
   <p><%= @event.description %></p>
-  <%= button_to 'Attend', event_event_attendees_path(@event), method: :post, confirm: 'really?' %>
+  <a href="<%= event_event_attendees_path(@event) %>" class="button">Attend</a>
 
   <div class="text-center">
     <a href="<%= events_path %>" class="button">All Events</a>
