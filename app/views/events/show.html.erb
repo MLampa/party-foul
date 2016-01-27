@@ -1,5 +1,5 @@
 <body>
-  <div class="title-header show-footer">
+  <div class="title-header show-footer panel">
     <h3><%= @event.event_name %></h3>
     <%= @event.description %>
     <%= @event.venue_name %><br>
@@ -28,9 +28,6 @@
         <% end %>
           </div>
         <% end %>
-
-
-
   </div>
   <div class="text-center">
     <a href="<%= events_path %>" class="button">All Events</a>

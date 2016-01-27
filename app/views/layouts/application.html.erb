@@ -1,93 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "Party Foul" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "Party Foul" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
-    <%= csrf_meta_tags %>
-    <link rel="stylesheet" href="animate.min.css">
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="animate.min.css">
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
 
-  </head>
+</head>
+<!-- The outermost div: the page layout -->
+<div class="off-canvas-wrap" data-offcanvas>
+  <!-- Inner wrap: "Topbar" content (icons, links, descriptive text etc)-->
+  <div class="inner-wrap">
+    <nav class="tab-bar">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+      </section>
 
-  <body>
-    <nav class="top-bar" data-topbar role="navigation">
-      <ul class="title-area">
-        <li class="name">
-          <h1><a href="/"><span style="color: #F660AB">PARTY</span><span style="color: #F3F315"><i class="fa fa-star-half-o animated bounceIn"></i></span><span style="color: #F660AB">FOUL</span></a></h1>
-        </li>
-      </ul>
+      <section class="middle tab-bar-section">
+        <h1 class="title"><a href="/"><span style="color: #F660AB">PARTY</span><span style="color: #F3F315"><i class="fa fa-star-half-o animated bounceIn"></i></span><span style="color: #F660AB">FOUL</span></a></h1>
+      </section>
 
-    <div class="contain-to-grid fixed">
-      <section class="top-bar-section">
-        <!-- Right Nav Section -->
-        <ul class="left">
-          <li><a href="<%= events_path %>">Browse All Events</a></li>
-        </ul>
-        <ul class="right">
-          <!-- <li class="has-form">
-            <div class="row collapse">
-              <div class="large-8 small-9 columns">
-                <input type="text" placeholder="Search">
-              </div>
-              <div class="large-4 small-3 columns">
-                <a href="#" class="alert button expand">Search</a>
-              </div>
-            </div>
-          </li> -->
-          <li><%= link_to "About", about_path %></li>
-          <% if user_signed_in? %>
+      <section class="right tab-bar-section">
+        <% if user_signed_in? %>
           <li><%= link_to "Profile", "/users/#{current_user.id}" %></li>
           <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
-          <% else %>
+        <% else %>
           <li><%= link_to "Sign In", new_user_session_path %></li>
-          <% end %>
-        </ul>
+        <% end %>
       </section>
+    <!-- Right Nav Section -->
+      <!-- <li class="has-form">
+        <div class="row collapse">
+          <div class="large-8 small-9 columns">
+            <input type="text" placeholder="Search">
+          </div>
+          <div class="large-4 small-3 columns">
+            <a href="#" class="alert button expand">Search</a>
+          </div>
+        </div>
+      </li> -->
+
     </nav>
-  </div>
 
-    <% flash.each do |key, value| %>
-    <div class="flash <%= key %>"><%= value %></div>
-    <% end %>
+    <!-- The Off Canvas Menu (slides out) -->
+    <aside class="left-off-canvas-menu">
+      <!-- Add links or other stuff here -->
+      <ul class="off-canvas-list test">
+        <li class="menu-title"><label><a href="/"><span style="color: #F660AB">PARTY</span><span style="color: #F3F315"><i class="fa fa-star-half-o animated bounceIn"></i></span><span style="color: #F660AB">FOUL</span></a>
+</label></li>
+        <li><a href="<%= events_path %>">Browse Events</a></li>
+        <li><a href="<%= about_path %>">About PartyFoul</a></li>
+          <li><a href="<%=new_user_session_path%>">Sign In</a></li>
+      </ul>
+    </aside>
 
-    <%= yield %>
-  </body>
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+    <!-- Main content -->
+    <section class="main-section">
+    <body>
+      <% flash.each do |key, value| %>
+      <div class="flash <%= key %>"><%= value %></div>
+      <% end %>
 
-    <footer class="footer">
-      <div class="row">
-        <div class="small-12 medium-6 large-5 columns">
-          <p class="logo"><span style="color: #F660AB">PARTY</span><span style="color: #F3F315"><i class="fa fa-star-half-o"></i></span><span style="color: #F660AB">FOUL</span></p>
-          <p class="footer-links">
-            <a href="/">Home</a>
-            <a href="/static_pages/about">About</a>
-            <a href="/static_pages/about_michelle">Contact</a>
-          </p>
-          <p class="copywrite">you know it © 2016</p>
-        </div>
-        <div class="small-12 medium-6 large-4 columns">
-          <ul class="contact">
-            <li><p><i class="fi-marker"></i>Boston, MA</p></li>
-            <li><p><i class="fi-telephone"></i>+1-617-500-8570</p></li>
-            <li><p><i class="fi-mail"></i>contact_me@viaLinkedIn.com</p></li>
-          </ul>
-        </div>
-        <div class="small-12 medium-12 large-3 columns">
-          <p class="about">About <span style="color: #F660AB">PARTY</span><span style="color: #F3F315"><i class="fa fa-star-half-o"></i></span><span style="color: #F660AB">FOUL</span></p>
-          <p class="about subheader">The Gamification of Networking Building</p>
-          <ul class="inline-list social">
-            <a href="https://www.facebook.com"><i class="fi-social-facebook"></i></a>
-            <a href="https://www.twitter.com/mclampasays"><i class="fi-social-twitter"></i></a>
-            <a href="https://www.linkedin.com/in/michellelampa"><i class="fi-social-linkedin"></i></a>
-            <a href="https://www.github.com/mlampa"><i class="fi-social-github"></i></a>
-          </ul>
-        </div>
+      <%= yield %>
+      </section>
+
+      <!-- Close the off-canvas menu -->
+      <a class="exit-off-canvas"></a>
+
+
+    </div>
+
+    </div> <!-- end inner wrap -->
+  </div> <!-- end off-canvas -->
+
+  <footer class="footer">
+    <div class="row">
+      <div class="small-12 medium-6 large-5 columns">
+        <p class="logo"><span style="color: #F660AB">PARTY</span><span style="color: #F3F315"><i class="fa fa-star-half-o"></i></span><span style="color: #F660AB">FOUL</span></p>
+        <p class="footer-links">
+          <a href="/">Home</a>
+          <a href="/static_pages/about">About</a>
+          <a href="/static_pages/about_michelle">Contact</a>
+        </p>
+        <p class="copywrite">you know it © 2016</p>
       </div>
-    </footer>
-  </html>
+      <div class="small-12 medium-6 large-4 columns">
+        <ul class="contact">
+          <li><p><i class="fi-marker"></i>Boston, MA</p></li>
+          <li><p><i class="fi-telephone"></i>+1-617-500-8570</p></li>
+          <li><p><i class="fi-mail"></i>contact_me@viaLinkedIn.com</p></li>
+        </ul>
+      </div>
+      <div class="small-12 medium-12 large-3 columns">
+        <p class="about">About <span style="color: #F660AB">PARTY</span><span style="color: #F3F315"><i class="fa fa-star-half-o"></i></span><span style="color: #F660AB">FOUL</span></p>
+        <p class="about subheader">The Gamification of Networking Building</p>
+        <ul class="inline-list social">
+          <a href="https://www.facebook.com"><i class="fi-social-facebook"></i></a>
+          <a href="https://www.twitter.com/mclampasays"><i class="fi-social-twitter"></i></a>
+          <a href="https://www.linkedin.com/in/michellelampa"><i class="fi-social-linkedin"></i></a>
+          <a href="https://www.github.com/mlampa"><i class="fi-social-github"></i></a>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+<link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+
+
+
+</html>
+<!-- Initialize Foundation JS -->
+<script>
+$(document).ready(function() {
+  $(document).foundation();
+})
+</script>

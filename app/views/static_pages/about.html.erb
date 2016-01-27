@@ -1,33 +1,30 @@
 <body>
-<div class="full-height bg-img">
-<div class="row">
-  <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
-    <div class="floating-text">
-      <p class="party-foul-text">Networking and building a good reputation is important these days.</p>
-      <p class="party-foul-text">Party Foul is an app that gamifies the event planning process.</p>
-      <h4>Party Foul is an app that gamifies the event planning process.</h4>
+  <section class="full-height about-background-image">
+      <section class="panel">
+      Party Foul is an app that gamifies the event planning process.
       <br>
-      <h4>As a guest, you can rate fellow event attendees as well as the event itself.  Descriptions of both the party foul and the party snap are encouraged.</h4>
+      As a guest, you can rate fellow event attendees as well as the event itself.  Descriptions of both the party foul and the party snap are encouraged.
       <br>
-      <h4>As an event host, you can rate your guests.  You can give as many party fouls and party snaps as you would like.</h4>
+      As an event host, you can rate your guests.  You can give as many party fouls and party snaps as you would like.
       <br>
-      <li>Party Snap:<br>
+      Party Snap:<br>
       <p>At an event, someone always meets one or two people who are the "life of the party" or the "best contact" they have made at the event. Encouraging descriptions allows event attendees to focus on their best contacts and why they are amazing.</p>
-      </li>
-      <li>Party Foul:<br>
+      Party Foul:<br>
       <p>At an event, there usually is one or two people who say or do inappropriate things that deter your guests from wanting to attend again.  Keeping a track of who these people are will help an event planner and event attendee know who to avoid when planning or attending future events.</p>
-      </li>
-      <h4>Happy networking!</h4>
+      Happy networking!
+      <div class="floating-text">
+        <div class="text-center">
+          <a href="<%= about_michelle_path %>" class="button">About PartyFoul's Creator</a>
+        </div>
+      </div>
+      <div class="floating-text">
+        <!-- <div class="medium-7 large-6 columns"> -->
+        <div class="text-center">
+          <a href="<%= events_path %>" class="button">Browse Events</a>
+        </div>
+      </div>
     </div>
   </div>
-  <li><%= link_to "About the Web App Creator", about_michelle_path %></li>
-  <div class="floating-text">
-          <!-- <div class="medium-7 large-6 columns"> -->
-          <div class="text-center">
-            <a href="<%= new_event_path %>" class="button">Add a New Event</a>
-          </div>
-        </div>
-
-</div>
-</div>
-</body>
+      </section>
+    </section>
+  </body>

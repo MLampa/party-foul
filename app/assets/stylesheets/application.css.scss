@@ -22,11 +22,16 @@
   */
 
 @import 'foundation-icons';
-
 .background-image {
   background: image-url('background_picture.jpg');
-  padding: 25px;
+  padding: 195px 5px 195px 5px;
 }
+
+.about-background-image {
+  background: image-url('background_picture.jpg');
+  padding: 50px 5px 50px 5px;
+}
+
 
 body {
   background-color: #FFF0F0;
@@ -38,10 +43,17 @@ body {
   max-width: 1200px;
 }
 
+.panel {
+  overflow: hidden;
+  max-width: auto;
+  text-align: center;
+}
+
+
 // Default medium-gray color
 $medium-gray: #cacaca;
 // Default global padding
-$global-padding: 1rem;
+$global-padding: 1rem 3rem;
 // Global value used for all elements that have a border radius.
 $global-radius: 5px;
 
@@ -59,13 +71,28 @@ $form-radius: $global-radius;
   background-color: white;
 }
 
+.page-title {
+  padding-left: 3rem;
+}
+
 /*** for About_Michelle ****/
+.michelle-background-image {
+  background: image-url('background_picture.jpg');
+  padding: 10px 5px 10px 5px;
+}
+
+.about-m {
+  max-width: 500px;
+}
 
 .item-wrapper {
   padding: 20px;
   border: 2px solid #efefef;
   border-radius: 7px;
-  margin-top: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: white;
+  text-align: center-justify;
 }
 .item-wrapper:hover .img-wrapper img {
   -webkit-filter: grayscale(0);
@@ -133,12 +160,12 @@ h5 {
   background-color: #191970;
   text-align: center;
   font-size: 1.2rem;
-  padding: 4rem; }
+  padding: 2rem; }
   .footer .inline-list a {
     display: inline-block;
     width: 2rem;
     height: 2rem;
-    background-color: #33383b;
+    background-color: #461B7E;
     border-radius: 2px;
     font-size: 1.5rem;
     color: #fff;
@@ -156,7 +183,7 @@ h5 {
         padding-left: 5rem; }
     .footer .contact i {
       position: absolute;
-      background-color: #33383b;
+      background-color: #461B7E;
       color: #fff;
       font-size: 2rem;
       border-radius: 50%;

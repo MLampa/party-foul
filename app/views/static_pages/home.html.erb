@@ -1,35 +1,8 @@
 <body>
-  <div class="full-height background-image">
-    <div class="row">
-      <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
-          <div class="medium-6 medium-centered large-4 large-centered columns">
-            <form>
-              <div class="row column log-in-form">
-                <form class="new_user" id="new_user" action="/users/sign_in" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden" value="&#x2713;" /><input type="hidden" name="authenticity_token" value="O/0jhTycY2sie1BJWb/D1reCTySGXq9deOUKsrw/8nTMO8Bma7UCd0mnieqS8wfHT6VssHD9WWrZOX6MB90r+A==" />
-                <h4 class="text-center">Log In<br>Start Networking</h4>
-                <div class="field">
-                  <label for="user_email">Email</label>
-                  <input autofocus="autofocus" type="email" value="" name="user[email]" id="user_email" />
-                </div>
-                <div class="field">
-                  <label for="user_password">Password</label>
-                  <input autocomplete="off" type="password" name="user[password]" id="user_password" />
-                </div>
-                <div class="actions">
-                  <input type="submit" name="commit" value="Log in" />
-                </div>
-                <div class="field">
-                  <input name="user[remember_me]" type="hidden" value="0" /><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me" />
-                  <label for="user_remember_me">Remember me</label>
-                </div>
-                <h5 class="text-left"><a href="/users/sign_up">Sign up</a></h5>
-                <p class="text-left"><a href="/users/password/new">Forgot your password?</a></p>
-              </form>
-              </div>
-            </form>
-          </div>
-      </div>
-    </div>
-  </div>
+  <section class="full-height background-image">
+      <section class="panel">
+          <p class="party-foul-text">Networking and building a good reputation is important these days.</p>
+          <p class="party-foul-text">Party Foul is an app that gamifies the event planning process.</p>
+      </section>
+  </section>
 </body>
-<%= render "devise/shared/links" %>
