@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
+  get 'new/home'
+
   devise_for :users
   root "static_pages#home"
 

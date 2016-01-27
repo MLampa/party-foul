@@ -4,8 +4,35 @@
 </div>
 
 <div>
-  Your Events:<br>
-  <% @events.each do |event| %>
-    <%= event.event_name %>
+  <% if @events.empty? %>
+    You are not attending any events.
+  <% else %>
+    <% @events.each do |event| %>
+      <% if event.user_id != current_user.user_id %>
+        You are not attending any events.
+      <% else %>
+        Events You Are Attending:<br>
+        <% @events.each do |event| %>
+          <%= event.event_name %>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>
+</div>
+
+<div>
+  <% @hosted_events.each do |hosted_event| %>
+    <% if hosted_event.user_id != current_user.id %>
+      You are not hosting any events.
+    <% else %>
+      Events You Are Hosting:<br>
+    <% @hosted_events.each do |host_event| %>
+      <% if host_event.user_id == current_user.id %>
+        <%= host_event.event_name %>
+        <p><%= link_to "Edit Your Event Information", edit_event_path, class: "button round small edit-info" %></p>
+        <p><%= link_to "Delete Event", event_path, method: :delete, class: "button round small org-button" %></p>
+      <% end %>
+    <% end %>
+    <% end %>
   <% end %>
 </div>
