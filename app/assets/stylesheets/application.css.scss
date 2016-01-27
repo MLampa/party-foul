@@ -24,7 +24,8 @@
 @import 'foundation-icons';
 
 .background-image {
-  background: image-url('background_picture.jpg')
+  background: image-url('background_picture.jpg');
+  padding: 25px;
 }
 
 body {
@@ -34,6 +35,28 @@ body {
 
 .row {
   color: #461B7E;
+  max-width: 1200px;
+}
+
+// Default medium-gray color
+$medium-gray: #cacaca;
+// Default global padding
+$global-padding: 1rem;
+// Global value used for all elements that have a border radius.
+$global-radius: 5px;
+
+// Setting the form border color
+$form-border-color: $medium-gray;
+// Setting the form padding
+$form-padding: $global-padding;
+// Setting the form border radius
+$form-radius: $global-radius;
+
+.log-in-form {
+  border: 1px solid $form-border-color;
+  padding: $form-padding;
+  border-radius: $form-radius;
+  background-color: white;
 }
 
 /*** for About_Michelle ****/
@@ -105,9 +128,6 @@ h5 {
     text-shadow: 1px 1px 1px #000;
     padding: 1rem 0 0 1rem;
     margin: 0; }
-
-.row {
-  max-width: 1200px; }
 
 .footer {
   background-color: #191970;
