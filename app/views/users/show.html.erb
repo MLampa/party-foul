@@ -1,7 +1,7 @@
 <body>
 <div class="panel">
   <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
-  Welcome, <%= current_user.username %>!<br><br>
+  <b>Welcome, <%= current_user.username %>!</b><br><br>
   <div class="text-center">
     <a href="<%= edit_user_registration_path %>" class="button round">Edit Profile</a>
   </div>
@@ -12,37 +12,28 @@
     You are not attending any events.<br><br>
     <div class="text-center">
       <a href="<%= events_path %>" class="button">All Events</a>
-    </div>
   <% else %>
+  <b>Events You Are Attending:</b><br>
     <% @events.each do |event| %>
-      <% if event.user_id != current_user.id %>
-        You are not attending any events.<br><br>
-      <% else %>
-        Events You Are Attending:<br>
-        <% @events.each do |event| %>
-          <%= event.event_name %>
-        <% end %>
-      <% end %>
+      <%= event.event_name %><br><br>
     <% end %>
   <% end %>
 </div>
 
 <div>
-  <% @hosted_events.each do |hosted_event| %>
-    <% if hosted_event.user_id != current_user.id %>
+  <% if @hosted_events.empty? %>
       You are not hosting any events.<br><br>
       <div class="text-center">
         <a href="<%= new_event_path %>" class="button">Add a New Event!</a>
       </div>
-    <% else %>
-      Events You Are Hosting:<br>
+  <% else %>
+      <b>Events You Are Hosting:</b><br>
     <% @hosted_events.each do |host_event| %>
       <% if host_event.user_id == current_user.id %>
         <%= host_event.event_name %><br><br>
-        <p><%= link_to "Edit Your Event Information", edit_event_path, class: "button round small edit-info" %></p>
-        <p><%= link_to "Delete Event", event_path, method: :delete, class: "button round small org-button" %></p>
+        <p class="inline-list"><%= link_to "Edit Event", edit_event_path, class: "button round small edit-info" %>
+          <%= link_to "Delete Event", event_path, method: :delete, class: "button round small org-button" %></p>
       <% end %>
-    <% end %>
     <% end %>
   <% end %>
 </div>
