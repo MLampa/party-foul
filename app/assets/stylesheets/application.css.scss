@@ -24,7 +24,7 @@
 @import 'foundation-icons';
 .background-image {
   background: image-url('background_picture.jpg');
-  padding: 195px 5px 195px 5px;
+  padding: 170px 5px 170px 5px;
 }
 
 .about-background-image {
@@ -49,6 +49,9 @@ body {
   text-align: center;
 }
 
+.link-to-text-color {
+  color: #fff;
+}
 
 // Default medium-gray color
 $medium-gray: #cacaca;

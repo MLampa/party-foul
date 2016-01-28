@@ -12,6 +12,7 @@
   <%= csrf_meta_tags %>
   <link rel="stylesheet" href="animate.min.css">
   <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Alegreya+Sans|Yantramanav:400,300|Kranky' rel='stylesheet' type='text/css'>
 
 </head>
 <!-- The outermost div: the page layout -->
@@ -22,19 +23,20 @@
       <section class="left-small">
         <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
       </section>
+      <section class="inline-list">
+      <div class="middle tab-bar-section">
+        <h1 class="left"><a href="/"><span style="color: #F660AB; font-family: 'Kranky', cursive; font-size: 20px;">PARTY</span><span style="color: #F3F315"><i class="fa fa-star-half-o animated bounceIn"></i></span><span style="color: #F660AB; font-family: 'Kranky', cursive; font-size: 20px;">FOUL</span></a></h1>
+      </div>
 
-      <section class="middle tab-bar-section">
-        <h1 class="title"><a href="/"><span style="color: #F660AB">PARTY</span><span style="color: #F3F315"><i class="fa fa-star-half-o animated bounceIn"></i></span><span style="color: #F660AB">FOUL</span></a></h1>
-      </section>
-
-      <section class="right tab-bar-section">
+      <div class="right tab-bar-section inline-list">
         <% if user_signed_in? %>
-          <li><%= link_to "Profile", "/users/#{current_user.id}" %></li>
-          <li><%= link_to "Sign Out", destroy_user_session_path, :method => :delete %></li>
+          <li class="right"><%= link_to "Profile", "/users/#{current_user.id}", class: 'link-to-text-color' %></li>
+          <li class="right"><%= link_to "Sign Out", destroy_user_session_path, :method => :delete, class: 'link-to-text-color' %></li>
         <% else %>
-          <li><%= link_to "Sign In", new_user_session_path %></li>
+          <li class="right"><%= link_to "Sign In", new_user_session_path, class: 'link-to-text-color' %> </li>
         <% end %>
-      </section>
+      </div>
+    </section>
     <!-- Right Nav Section -->
       <!-- <li class="has-form">
         <div class="row collapse">
@@ -53,7 +55,7 @@
     <aside class="left-off-canvas-menu">
       <!-- Add links or other stuff here -->
       <ul class="off-canvas-list test">
-        <li class="menu-title"><label><a href="/"><span style="color: #F660AB">PARTY</span><span style="color: #F3F315"><i class="fa fa-star-half-o animated bounceIn"></i></span><span style="color: #F660AB">FOUL</span></a>
+        <li class="menu-title"><label><a href="/"><span style="color: #F660AB; font-family: 'Kranky', cursive; font-size: 20px;">PARTY</span><span style="color: #F3F315; font-size: 20px;"><i class="fa fa-star-half-o animated bounceIn"></i></span><span style="color: #F660AB; font-family: 'Kranky', cursive; font-size: 20px;">FOUL</span></a>
 </label></li>
         <li><a href="<%= events_path %>">Browse Events</a></li>
         <li><a href="<%= about_path %>">About PartyFoul</a></li>
@@ -83,7 +85,7 @@
   <footer class="footer">
     <div class="row">
       <div class="small-12 medium-6 large-5 columns">
-        <p class="logo"><span style="color: #F660AB">PARTY</span><span style="color: #F3F315"><i class="fa fa-star-half-o"></i></span><span style="color: #F660AB">FOUL</span></p>
+        <p class="logo"><span style="color: #F660AB; font-family: 'Kranky', cursive;">PARTY </span><span style="color: #F3F315"><i class="fa fa-star-half-o"></i></span><span style="color: #F660AB; font-family: 'Kranky', cursive;">FOUL</span></p>
         <p class="footer-links">
           <a href="/">Home</a>
           <a href="/static_pages/about">About</a>
@@ -99,7 +101,7 @@
         </ul>
       </div>
       <div class="small-12 medium-12 large-3 columns">
-        <p class="about">About <span style="color: #F660AB">PARTY</span><span style="color: #F3F315"><i class="fa fa-star-half-o"></i></span><span style="color: #F660AB">FOUL</span></p>
+        <p class="about">About <span style="color: #F660AB; font-family: 'Kranky', cursive;">PARTY</span><span style="color: #F3F315"><i class="fa fa-star-half-o"></i></span><span style="color: #F660AB; font-family: 'Kranky', cursive;">FOUL</span></p>
         <p class="about subheader">The Gamification of Networking Building</p>
         <ul class="inline-list social">
           <a href="https://www.facebook.com"><i class="fi-social-facebook"></i></a>
