@@ -12,27 +12,27 @@
           <%= link_to "Delete Event", event_path, method: :delete, class: "button round small org-button" %>
         </div>
       <% else %>
+      <h3>Guest List</h3>
+      <% if @attendees.empty? %> Be the first to sign up!
         <%= button_to 'Attend', event_event_attendees_path(@event), method: :post, class: "button round small org-button" %>
+      <% end %>
+      <% @attendees.each do |attendee| %>
+        <% if attendee.id == current_user.id %>
+          <%= attendee.username %><br>
+          <%= button_to 'Cannot Attend', event_attendee_path(@event_attendee), method: :delete, class: "button round small org-button" %>
+        <% else %>
+          <div>
+            <%= attendee.username %><br>
+            <%= button_to 'Attend', event_event_attendees_path(@event), method: :post, class: "button round small org-button" %>
+        <% end %>
+      <% end %>
+          </div>
       <% end %>
     <% else %>
       <h3><b>You must be signed in to attend an event.<br></h3>
       <%= link_to "Sign In", new_user_session_path %>
     <% end %>
 
-    <h3>Guest List</h3>
-      <% if @attendees.empty? %> Be the first to sign up! <% end %>
-
-        <% @attendees.each do |attendee| %>
-          <% if attendee.id == current_user.id %>
-            <%= attendee.username %><br>
-            <%= button_to 'Cannot Attend', event_attendee_path(@event_attendee), method: :delete %>
-          <% else %>
-            <div>
-            <%= attendee.username %><br>
-            <%= button_to 'Attend', event_event_attendees_path(@event), method: :post, class: "button round small org-button" %>
-          <% end %>
-        <% end %>
-            </div>
   </div>
 
   <div class="text-center">
