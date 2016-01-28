@@ -8,8 +8,9 @@
 
     <% if user_signed_in? %>
       <% if @event.user_id == current_user.id %>
-        <p><%= link_to "Edit Your Event Information", edit_event_path, class: "button round small edit-info" %></p>
-        <p><%= link_to "Delete Event", event_path, method: :delete, class: "button round small org-button" %></p>
+        <div class="inline-list"><%= link_to "Edit Your Event Information", edit_event_path, class: "button round small edit-info" %>
+          <%= link_to "Delete Event", event_path, method: :delete, class: "button round small org-button" %>
+        </div>
       <% else %>
         <%= button_to 'Attend', event_event_attendees_path(@event), method: :post, class: "button round small org-button" %>
       <% end %>
@@ -19,17 +20,23 @@
     <% end %>
 
     <h3>Guest List</h3>
-      <% if @attendees.empty? %> Be the first to sign up!
-        <%= button_to 'Attend', event_event_attendees_path(@event), method: :post, confirm: 'really?' %>
-      <% else %>
+      <% if @attendees.empty? %> Be the first to sign up! <% end %>
+
         <% @attendees.each do |attendee| %>
-          <div>
-            <%= attendee.username %>
+          <% if attendee.id == current_user.id %>
+            <%= attendee.username %><br>
+            <%= button_to 'Cannot Attend', event_attendee_path(@event_attendee), method: :delete %>
+          <% else %>
+            <div>
+            <%= attendee.username %><br>
+            <%= button_to 'Attend', event_event_attendees_path(@event), method: :post, class: "button round small org-button" %>
+          <% end %>
         <% end %>
-          </div>
-        <% end %>
+            </div>
   </div>
+
   <div class="text-center">
     <a href="<%= events_path %>" class="button">All Events</a>
   </div>
+
 </body>
