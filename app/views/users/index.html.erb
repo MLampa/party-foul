@@ -1,5 +1,11 @@
+<body>
+<div class="panel">
+  <div class="small-12 medium-10 medium-centered large-8 large-centered columns">
 <h1>User</h1>
 
 <% if user_signed_in? || current_user.admin? %>
   <%= link_to "Profile", user_path(current_user) %>
 <% end %>
+</div>
+</div>
+</body>
