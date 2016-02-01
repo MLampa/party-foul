@@ -18,6 +18,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'foundation-icons-sass-rails'
 gem 'animate-rails'
 gem 'carrierwave'
+gem 'fog'
 
 group :development, :test do
   gem 'byebug'
@@ -37,7 +38,6 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'rspec'
   gem 'state_select'
-  gem 'fog'
 end
 
 group :production do
