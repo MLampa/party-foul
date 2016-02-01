@@ -10,13 +10,16 @@
 
     <% if user_signed_in? %>
       <% if @event.user_id == current_user.id %>
-        <div class="inline-list"><%= link_to "Edit Your Event Information", edit_event_path, class: "button small edit-info" %>
-          <%= link_to "Delete Event", event_path, method: :delete, class: "button small org-button" %>
+        <div class="inline"><%= link_to "Edit Your Event Information", edit_event_path, class: "button small round edit-info" %>
+          <%= link_to "Delete Event", event_path, method: :delete, class: "button small round org-button" %>
         </div>
       <% else %>
         <h3>Guest List</h3>
         <% @attendees.each do |attendee| %>
-          <b><%= attendee.username %></b><br>
+        <b><%= attendee.username %></b><br>
+        <% unless attendee.avatar.url.nil? %>
+          <li class="picture"><%= image_tag(attendee.avatar) %></li><br>
+        <% end %>
             <%= EventAttendee.find_by(user_id: attendee.id, event_id: @event.id).revup_count %>
             <%= button_to "Party Snap", event_attendee_path(EventAttendee.find_by(user_id: attendee.id, event_id: @event.id)), method:"patch", params: { up: true, event: @event }, class:"button round tiny" %>
             <%= EventAttendee.find_by(user_id: attendee.id, event_id: @event.id).revdown_count %>
@@ -30,9 +33,9 @@
       <% end %>
 
       <% if @event_attendee  %>
-        <%= button_to 'Cannot Attend', event_attendee_path(@event_attendee), method: :delete, class: "button small org-button" %>
+        <%= button_to 'Cannot Attend', event_attendee_path(@event_attendee), method: :delete, class: "button small round org-button" %>
       <% else %>
-        <%= button_to 'Attend', event_event_attendees_path(@event), method: :post, class: "button small org-button" %>
+        <%= button_to 'Attend', event_event_attendees_path(@event), method: :post, class: "button round tiny" %>
       <% end %>
 
     <% else %>
