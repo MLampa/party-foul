@@ -37,6 +37,7 @@ group :development, :test do
   gem 'quiet_assets'
   gem 'rspec'
   gem 'state_select'
+  gem 'fog'
 end
 
 group :production do

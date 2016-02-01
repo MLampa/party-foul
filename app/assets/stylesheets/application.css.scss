@@ -63,6 +63,14 @@ body {
   border-color: #461B7E;
 }
 
+.picture {
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+  border: 3px solid;
+}
+
 // Default medium-gray color
 $medium-gray: #cacaca;
 // Default global padding
