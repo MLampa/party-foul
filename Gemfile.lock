@@ -36,7 +36,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    acts_as_votable (0.10.0)
     addressable (2.4.0)
     animate-rails (1.0.9)
       rails
@@ -275,7 +274,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts_as_votable (~> 0.10.0)
   animate-rails
   bootstrap-datepicker-rails
   byebug
