@@ -6,18 +6,22 @@
     <%= @event.venue_name %><br>
     <%= @event.address %><br>
     <%= @event.city %>, <%= @event.state %> <%= @event.zip_code %>
+    <br><br>
 
     <% if user_signed_in? %>
       <% if @event.user_id == current_user.id %>
-        <div class="inline-list"><%= link_to "Edit Your Event Information", edit_event_path, class: "button round small edit-info" %>
-          <%= link_to "Delete Event", event_path, method: :delete, class: "button round small org-button" %>
+        <div class="inline-list"><%= link_to "Edit Your Event Information", edit_event_path, class: "button small edit-info" %>
+          <%= link_to "Delete Event", event_path, method: :delete, class: "button small org-button" %>
         </div>
       <% else %>
         <h3>Guest List</h3>
         <% @attendees.each do |attendee| %>
-          <% if attendee.id == current_user.id %>
-            <%= attendee.username %><br>
-          <% end %>
+          <b><%= attendee.username %></b><br>
+            <%= EventAttendee.find_by(user_id: attendee.id, event_id: @event.id).revup_count %>
+            <%= button_to "Party Snap", event_attendee_path(EventAttendee.find_by(user_id: attendee.id, event_id: @event.id)), method:"patch", params: { up: true, event: @event }, class:"button round tiny" %>
+            <%= EventAttendee.find_by(user_id: attendee.id, event_id: @event.id).revdown_count %>
+            <%= button_to "Party Foul", event_attendee_path(EventAttendee.find_by(user_id: attendee.id, event_id: @event.id)), method:"patch", params: { down: true, event: @event }, class:"button round tiny" %>
+          <br><br>
         <% end %>
       <% end %>
 
@@ -26,9 +30,9 @@
       <% end %>
 
       <% if @event_attendee  %>
-        <%= button_to 'Cannot Attend', event_attendee_path(@event_attendee), method: :delete, class: "button round small org-button" %>
+        <%= button_to 'Cannot Attend', event_attendee_path(@event_attendee), method: :delete, class: "button small org-button" %>
       <% else %>
-        <%= button_to 'Attend', event_event_attendees_path(@event), method: :post, class: "button round small org-button" %>
+        <%= button_to 'Attend', event_event_attendees_path(@event), method: :post, class: "button small org-button" %>
       <% end %>
 
     <% else %>

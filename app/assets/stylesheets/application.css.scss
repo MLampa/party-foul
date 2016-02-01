@@ -53,6 +53,16 @@ body {
   color: #fff;
 }
 
+.link-to-text-color:hover {
+  color: #fff;
+}
+
+.home {
+  border: thin;
+  border-style: solid;
+  border-color: #461B7E;
+}
+
 // Default medium-gray color
 $medium-gray: #cacaca;
 // Default global padding
@@ -96,6 +106,7 @@ $form-radius: $global-radius;
   margin-bottom: 10px;
   background-color: white;
   text-align: center-justify;
+
 }
 .item-wrapper:hover .img-wrapper img {
   -webkit-filter: grayscale(0);
