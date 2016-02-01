@@ -1,0 +1,18 @@
+<tr>
+  <td>
+    <div id="vote-<%= vote.id %>">
+      <div class="vote-wrap">
+        <div class="upvote box">
+          <%= button_to "Party Snap", "/events/#{vote.event_id}/event_attendees/#{vote.event_attendee_id}/votes/#{vote.id}", method:"patch", params: {up: "true", load_javascript: "false"} %>
+        </div>
+        <div class="helpful box"><%= event_attendee.revup_count %></div>
+        <div class="downvote box">
+          <%= button_to "Party Foul", "/events/#{vote.event_id}/event_attendees/#{vote.event_attendee_id}/votes/#{vote.id}", method:"patch", params: {down: "true", load_javascript: "false"}%>
+        </div>
+        <div class="not-helpful box"><%= event_attendee.revdown_count %></div>
+      </div>
+    </div>
+  </td>
+</tr>
+
+<!-- event_event_attendee_vote_path(vote.event.id, vote.event_attendee.id, vote) -->

@@ -11,14 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160128164816) do
+ActiveRecord::Schema.define(version: 20160129185614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "event_attendees", force: :cascade do |t|
-    t.integer "user_id",  null: false
-    t.integer "event_id", null: false
+    t.integer "user_id",                   null: false
+    t.integer "event_id",                  null: false
+    t.integer "revup_count",   default: 0, null: false
+    t.integer "revdown_count", default: 0, null: false
   end
 
   create_table "events", force: :cascade do |t|
@@ -63,19 +65,14 @@ ActiveRecord::Schema.define(version: 20160128164816) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "votes", force: :cascade do |t|
-    t.integer  "votable_id"
-    t.string   "votable_type"
-    t.integer  "voter_id"
-    t.string   "voter_type"
-    t.boolean  "vote_flag"
-    t.string   "vote_scope"
-    t.integer  "vote_weight"
-    t.text     "vote_comment"
+    t.integer  "event_attendee_id",                 null: false
+    t.integer  "user_id",                           null: false
+    t.text     "comments"
+    t.boolean  "up",                default: false, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
-  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
+  add_index "votes", ["event_attendee_id", "user_id"], name: "index_votes_on_event_attendee_id_and_user_id", unique: true, using: :btree
 
 end

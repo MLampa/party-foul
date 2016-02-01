@@ -14,9 +14,11 @@ Rails.application.routes.draw do
   get "static_pages/about_michelle", :as => 'about_michelle'
 
   resources :users, only: [:show, :index, :new, :create, :edit, :destroy, :update]
+
   resources :events, only: [:show, :index, :new, :create, :edit, :destroy, :update] do
-    resources :event_attendees, only: [:create]
+    resources :event_attendees, only: [:update, :create]
   end
 
-  resources :event_attendees, only: [:destroy]
+  resources :event_attendees, only: [:destroy, :update]
+
 end
