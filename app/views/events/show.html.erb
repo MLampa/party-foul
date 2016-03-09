@@ -17,9 +17,11 @@
         <h3>Guest List</h3>
         <% @attendees.each do |attendee| %>
         <b><%= attendee.username %></b><br>
-        <% unless attendee.avatar.url.nil? %>
-          <li class="picture"><%= image_tag(attendee.avatar) %></li><br>
-        <% end %>
+        <li class="picture">
+          <% unless attendee.avatar.url.nil? %>
+          <%= image_tag(attendee.avatar) %>
+          <% end %>
+        </li><br>
             <%= EventAttendee.find_by(user_id: attendee.id, event_id: @event.id).revup_count %>
             <%= button_to "Party Snap", event_attendee_path(EventAttendee.find_by(user_id: attendee.id, event_id: @event.id)), method:"patch", params: { up: true, event: @event }, class:"button round tiny" %>
             <%= EventAttendee.find_by(user_id: attendee.id, event_id: @event.id).revdown_count %>

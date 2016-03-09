@@ -17,7 +17,7 @@
   <% else %>
   <b>Events You Are Attending:</b><br>
     <% @events.each do |event| %>
-      <%= event.event_name %><br><br>
+    <a href="/events/<%=event.id%>"><%= event.event_name %></a><br><br>
     <% end %>
   <% end %>
 </div>
